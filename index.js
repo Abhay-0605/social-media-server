@@ -23,7 +23,7 @@ app.use(cors({
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
-
+app.options("*", cors());
 
 // Session setup
 app.use(session({
@@ -37,7 +37,8 @@ app.use(session({
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24 * 7,
         sameSite: "none",   // 🔥 ADD THIS
-        secure: false      // 🔥 ADD THIS (true only in production with HTTPS)
+        secure: false , 
+        domain: undefined     // 🔥 ADD THIS (true only in production with HTTPS)
     }
 }));
 
