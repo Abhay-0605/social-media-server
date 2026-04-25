@@ -17,7 +17,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-      origin: "http://social-media-client-six-gamma.vercel.app",
+      origin: "https://social-media-client-six-gamma.vercel.app",
     //  origin:process.env.CLIENT_URL,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
