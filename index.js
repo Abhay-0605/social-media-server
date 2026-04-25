@@ -36,7 +36,7 @@ app.use(session({
     cookie: {
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24 * 7,
-        sameSite: "lax",   // 🔥 ADD THIS
+        sameSite: "none",   // 🔥 ADD THIS
         secure: false      // 🔥 ADD THIS (true only in production with HTTPS)
     }
 }));
