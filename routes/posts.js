@@ -11,9 +11,12 @@ router.get("/", isAuth, async (req, res) => {
         const posts = await Post.find()
             .populate("user", "username profilePic")
             .populate("comments.user", "username profilePic")
-            .sort({ createdAt: -1 });  // latest pehle
+            .sort({ createdAt: -1 });
 
-        res.json(posts);
+        // Deleted user ki posts filter karo
+        const filtered = posts.filter(post => post.user !== null);
+
+        res.json(filtered);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
